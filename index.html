@@ -1,51 +1,112 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ハンバーガーメニュー</title>
-    <!-- Font Awesome CDN -->
-    <link href="https://use.fontawesome.com/releases/v6.5.2/css/all.css" rel="stylesheet">
-    <!-- CSS スタイル -->
-    <style>
-        /* メニューのスタイル */
-        .menu {
-            display: none; /* 最初は非表示 */
-            position: absolute;
-            top: 50px; /* メニューの位置調整 */
-            right: 20px; /* メニューの位置調整 */
-            background-color: #f9f9f9;
-            padding: 10px;
-            border: 1px solid #ccc;
-            z-index: 1000;
-        }
-        /* メニューアイテムのスタイル */
-        .menu-item {
-            margin-bottom: 10px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ハンバーガーメニューのサンプル</title>
+<link href="https://use.fontawesome.com/releases/v6.5.2/css/all.css" rel="stylesheet">
+    
+<style>
+/* 基本のスタイル */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  background-color: #333;
+  color: #fff;
+  padding: 15px;
+  text-align: center;
+}
+
+.container {
+  padding: 20px;
+}
+
+/* ハンバーガーメニューのスタイル */
+.hamburger {
+  display: none; /* デフォルトでは非表示 */
+  cursor: pointer;
+  padding: 10px;
+}
+
+.hamburger-icon {
+  color: #fff;
+  font-size: 24px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+}
+
+.navbar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.navbar ul li {
+  padding: 10px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.navbar ul li:hover {
+  background-color: #555;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar ul {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    width: 100%;
+    text-align: center;
+    top: 60px;
+    left: 0;
+    z-index: 1000;
+  }
+
+  .navbar ul.active {
+    display: block;
+  }
+
+  .navbar ul li {
+    margin-top: 10px;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+</style>
 </head>
 <body>
-
-<!-- ハンバーガーメニューアイコン -->
-<i class="fas fa-bars" id="menu-icon"></i>
-
-<!-- メニュー本体 -->
-<div class="menu" id="menu">
-    <div class="menu-item"><a href="#">メニュー項目1</a></div>
-    <div class="menu-item"><a href="#">メニュー項目2</a></div>
-    <div class="menu-item"><a href="#">メニュー項目3</a></div>
+<div class="header">
+  <h1>ハンバーガーメニューのサンプル</h1>
 </div>
 
-<!-- JavaScript -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha512-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" crossorigin="anonymous"></script>
+<div class="container">
+  <div class="navbar">
+    <div class="hamburger" onclick="toggleMenu()">
+      <i class="fas fa-bars hamburger-icon"></i>
+    </div>
+    <ul id="menu">
+      <li>ホーム</li>
+      <li>サービス</li>
+      <li>製品</li>
+      <li>お問い合わせ</li>
+    </ul>
+  </div>
+</div>
+
 <script>
-$(document).ready(function() {
-    // ハンバーガーメニューアイコンがクリックされた時の動作
-    $('#menu-icon').click(function() {
-        $('#menu').toggle(); // メニューの表示/非表示を切り替える
-    });
-});
+function toggleMenu() {
+  var menu = document.getElementById("menu");
+  menu.classList.toggle("active");
+}
 </script>
 
 </body>
