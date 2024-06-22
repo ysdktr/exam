@@ -1,53 +1,49 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ハンバーガーメニューの実装</title>
-<!-- Font Awesome CDN -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" crossorigin="anonymous" />
-<!-- スタイルシート -->
-<style>
-    /* ハンバーガーメニューのスタイル */
-    .menu {
-        display: none;
-        position: absolute;
-        top: 50px; /* 例：適切な位置に調整してください */
-        right: 20px; /* 例：適切な位置に調整してください */
-        background-color: #f9f9f9;
-        border: 1px solid #ccc;
-        padding: 10px;
-    }
-    .menu a {
-        display: block;
-        padding: 5px 10px;
-        color: #333;
-        text-decoration: none;
-    }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ハンバーガーメニュー</title>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" crossorigin="anonymous" />
+    <!-- CSS スタイル -->
+    <style>
+        /* メニューのスタイル */
+        .menu {
+            display: none; /* 最初は非表示 */
+            position: absolute;
+            top: 50px; /* メニューの位置調整 */
+            right: 20px; /* メニューの位置調整 */
+            background-color: #f9f9f9;
+            padding: 10px;
+            border: 1px solid #ccc;
+            z-index: 1000;
+        }
+        /* メニューアイテムのスタイル */
+        .menu-item {
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
 
 <!-- ハンバーガーメニューアイコン -->
 <i class="fas fa-bars" id="menu-icon"></i>
 
-<!-- メニューの内容 -->
+<!-- メニュー本体 -->
 <div class="menu" id="menu">
-    <a href="#">Home</a>
-    <a href="#">About</a>
-    <a href="#">Services</a>
-    <a href="#">Contact</a>
+    <div class="menu-item"><a href="#">メニュー項目1</a></div>
+    <div class="menu-item"><a href="#">メニュー項目2</a></div>
+    <div class="menu-item"><a href="#">メニュー項目3</a></div>
 </div>
 
-<!-- jQuery CDN -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha512-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" crossorigin="anonymous"></script>
-
 <!-- JavaScript -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha512-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" crossorigin="anonymous"></script>
 <script>
 $(document).ready(function() {
-    // ハンバーガーメニューアイコンがクリックされたときの処理
+    // ハンバーガーメニューアイコンがクリックされた時の動作
     $('#menu-icon').click(function() {
-        $('#menu').toggle(); // メニューの表示と非表示を切り替える
+        $('#menu').toggle(); // メニューの表示/非表示を切り替える
     });
 });
 </script>
