@@ -1,113 +1,102 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ハンバーガーメニューのサンプル</title>
-<link href="https://use.fontawesome.com/releases/v6.5.2/css/all.css" rel="stylesheet">
-    
-<style>
-/* 基本のスタイル */
-body {
-  font-family: Arial, sans-serif;
+/* Reset styles */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-.header {
-  background-color: #333;
-  color: #fff;
-  padding: 15px;
-  text-align: center;
+/* Basic styles */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
 }
 
 .container {
-  padding: 20px;
-}
-
-/* ハンバーガーメニューのスタイル */
-.hamburger {
-  display: none; /* デフォルトでは非表示 */
-  cursor: pointer;
-  padding: 10px;
-}
-
-.hamburger-icon {
-  color: #fff;
-  font-size: 24px;
-}
-
-.navbar {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
 }
 
-.navbar ul {
+.logo {
+  font-size: 1.6rem;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+.menu {
   list-style-type: none;
-  padding: 0;
+  display: flex;
 }
 
-.navbar ul li {
-  padding: 10px;
-  margin: 0 5px;
+.menu li {
+  margin-left: 20px;
+}
+
+.menu li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.menu li a:hover {
+  text-decoration: underline;
+}
+
+.nav-toggle {
+  display: none;
+}
+
+.nav-toggle-label {
   cursor: pointer;
+  padding: 10px;
+  display: block;
+  background-color: #444;
 }
 
-.navbar ul li:hover {
+.nav-toggle-label:hover {
   background-color: #555;
 }
 
-@media screen and (max-width: 768px) {
-  .navbar ul {
+.nav-toggle-label span {
+  font-size: 1.4rem;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .menu {
     display: none;
-    position: absolute;
-    background-color: #333;
+    flex-direction: column;
     width: 100%;
     text-align: center;
+    background-color: #444;
+    position: absolute;
     top: 60px;
     left: 0;
-    z-index: 1000;
+    z-index: 1;
   }
 
-  .navbar ul.active {
-    display: block;
+  .menu.active {
+    display: flex;
   }
 
-  .navbar ul li {
-    margin-top: 10px;
+  .menu li {
+    margin: 10px 0;
   }
 
-  .hamburger {
-    display: block;
+  .nav-toggle:checked + .nav-toggle-label .fas.fa-bars {
+    display: none;
+  }
+
+  .nav-toggle:checked + .nav-toggle-label .fas.fa-times {
+    display: inline-block;
   }
 }
-</style>
-</head>
-<body>
-<div class="header">
-  <h1>ハンバーガーメニューのサンプル</h1>
-</div>
-
-<div class="container">
-  <div class="navbar">
-    <div class="hamburger" onclick="toggleMenu()">
-      <i class="fas fa-bars hamburger-icon"></i>
-    </div>
-    <ul id="menu">
-      <li>ホーム</li>
-      <li>サービス</li>
-      <li>製品</li>
-      <li>お問い合わせ</li>
-    </ul>
-  </div>
-</div>
-
-<script>
-function toggleMenu() {
-  var menu = document.getElementById("menu");
-  menu.classList.toggle("active");
-}
-</script>
-
-</body>
-</html>
