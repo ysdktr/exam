@@ -1,35 +1,69 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toggle Panel Example</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <style>
-        #panel {
-            display: none;
-            background-color: #f9f9f9;
-            padding: 10px;
-            border: 1px solid #ccc;
-            width: 200px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ハンバーガーメニューの実装</title>
+<!-- Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" crossorigin="anonymous" />
+<style>
+    /* スタイルは簡易的なものです。実際のデザインに合わせて調整してください。 */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    .navbar {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .navbar-brand {
+        font-size: 1.5rem;
+    }
+    .menu {
+        display: none;
+        background-color: #444;
+        padding: 10px;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .menu a {
+        display: block;
+        color: #fff;
+        text-decoration: none;
+        padding: 8px 16px;
+    }
+</style>
 </head>
 <body>
-    <div class="container">
-        <button id="toggleButton">▶</button>
-        <div id="panel">
-            <!-- パネルの中身 -->
-            <p>ここにパネルの内容を記述します。</p>
-        </div>
-    </div>
 
-    <script>
-        $(document).ready(function() {
-            $('#toggleButton').click(function() {
-                $('#panel').slideToggle();
-            });
-        });
-    </script>
+<div class="navbar">
+    <div class="navbar-brand">Your Website</div>
+    <i class="fas fa-bars fa-2x"></i> <!-- ハンバーガーメニューアイコン -->
+</div>
+
+<div class="menu" id="menu">
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Contact</a>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha512-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" crossorigin="anonymous"></script>
+<script>
+$(document).ready(function() {
+    $('.fa-bars').click(function() {
+        $('#menu').toggle(); // メニューの表示/非表示を切り替える
+    });
+});
+</script>
+
 </body>
 </html>
