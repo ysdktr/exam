@@ -1,102 +1,42 @@
-/* Reset styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ハンバーガーメニューのサンプル</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-jq7D8Q0jYCF7Alf/tZAAiGgLPNNZg8p2cbWLX7K/P2Cy9bV6Aco1Q+J+62iayIyYUhL6nHr+HRuKz9Mq2XhXQw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
 
-/* Basic styles */
-body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-}
+<header>
+  <div class="container">
+    <div class="logo">ロゴ</div>
+    <nav>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <label for="nav-toggle" class="nav-toggle-label">
+        <span><i class="fas fa-bars"></i></span>
+      </label>
+      <ul class="menu">
+        <li><a href="#">ホーム</a></li>
+        <li><a href="#">サービス</a></li>
+        <li><a href="#">製品</a></li>
+        <li><a href="#">お問い合わせ</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-.container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  background-color: #333;
-  color: #fff;
-}
+<main>
+  <section class="hero">
+    <h1>ハンバーガーメニューのサンプルページ</h1>
+    <p>ここにコンテンツが入ります。</p>
+  </section>
+</main>
 
-.logo {
-  font-size: 1.6rem;
-}
+<footer>
+  <p>&copy; 2024 会社名. All rights reserved.</p>
+</footer>
 
-nav {
-  display: flex;
-  align-items: center;
-}
-
-.menu {
-  list-style-type: none;
-  display: flex;
-}
-
-.menu li {
-  margin-left: 20px;
-}
-
-.menu li a {
-  color: #fff;
-  text-decoration: none;
-}
-
-.menu li a:hover {
-  text-decoration: underline;
-}
-
-.nav-toggle {
-  display: none;
-}
-
-.nav-toggle-label {
-  cursor: pointer;
-  padding: 10px;
-  display: block;
-  background-color: #444;
-}
-
-.nav-toggle-label:hover {
-  background-color: #555;
-}
-
-.nav-toggle-label span {
-  font-size: 1.4rem;
-}
-
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-    padding: 10px;
-  }
-
-  .menu {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    text-align: center;
-    background-color: #444;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    z-index: 1;
-  }
-
-  .menu.active {
-    display: flex;
-  }
-
-  .menu li {
-    margin: 10px 0;
-  }
-
-  .nav-toggle:checked + .nav-toggle-label .fas.fa-bars {
-    display: none;
-  }
-
-  .nav-toggle:checked + .nav-toggle-label .fas.fa-times {
-    display: inline-block;
-  }
-}
+</body>
+</html>
