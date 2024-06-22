@@ -1,0 +1,102 @@
+/* Reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Basic styles */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+}
+
+.logo {
+  font-size: 1.6rem;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+.menu {
+  list-style-type: none;
+  display: flex;
+}
+
+.menu li {
+  margin-left: 20px;
+}
+
+.menu li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.menu li a:hover {
+  text-decoration: underline;
+}
+
+.nav-toggle {
+  display: none;
+}
+
+.nav-toggle-label {
+  cursor: pointer;
+  padding: 10px;
+  display: block;
+  background-color: #444;
+}
+
+.nav-toggle-label:hover {
+  background-color: #555;
+}
+
+.nav-toggle-label span {
+  font-size: 1.4rem;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    background-color: #444;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    z-index: 1;
+  }
+
+  .menu.active {
+    display: flex;
+  }
+
+  .menu li {
+    margin: 10px 0;
+  }
+
+  .nav-toggle:checked + .nav-toggle-label .fas.fa-bars {
+    display: none;
+  }
+
+  .nav-toggle:checked + .nav-toggle-label .fas.fa-times {
+    display: inline-block;
+  }
+}
